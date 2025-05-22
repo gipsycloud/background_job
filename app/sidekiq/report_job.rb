@@ -3,5 +3,6 @@ class ReportJob
 
   def perform(*args)
     # Do something
+    puts "Hello world"
   end
 end

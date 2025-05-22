@@ -1,0 +1,7 @@
+<%= button_to "Say Hello Async", report_path, remote: true %>
+<% if current_user %>
+  <h1>Admin: <%= current_user.admin? %></h1>
+  <%= link_to "Logout", destroy_user_session_path, data: { turbo_metod: "delete" } %>
+<% else %>
+  <= link_to "Login", new_user_session_path %>
+<% end %>
