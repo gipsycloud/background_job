@@ -1,0 +1,150 @@
+<%# <h1>Admin::Dashboard#index</h1>
+<p>Find me in app/views/admin/dashboard/index.html.erb</p> %>
+
+<%= button_to "Say Hello Async", report_path, remote: true %>
+<% if current_user %>
+  <h1>Admin: <%= current_user.admin? %></h1>
+  <%= button_to "Logout", destroy_user_session_path, method: :delete %>
+<% else %>
+  <%= link_to "Login", new_user_session_path %>
+<% end %>
+
+<div class="container-fluid">
+    <div class="row">
+      <!-- Sidebar -->
+      <div class="col-md-3 col-lg-2 d-md-block bg-dark sidebar collapse">
+        <div class="position-sticky pt-3">
+          <div class="text-center mb-4">
+            <h4 class="text-white">Admin Panel</h4>
+          </div>
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">
+                <i class="fas fa-tachometer-alt me-2"></i>Dashboard
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <i class="fas fa-users me-2"></i>Users
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <i class="fas fa-box me-2"></i>Products
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <i class="fas fa-chart-bar me-2"></i>Reports
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <i class="fas fa-cog me-2"></i>Settings
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 main-content">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+          <h1 class="h2">Dashboard Overview</h1>
+          <div class="btn-toolbar mb-2 mb-md-0">
+            <div class="btn-group me-2">
+              <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+            </div>
+            <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
+              <i class="fas fa-calendar me-1"></i>This week
+            </button>
+          </div>
+        </div>
+
+        <!-- Stats Cards -->
+        <div class="row mb-4">
+          <div class="col-md-3 mb-3">
+            <div class="card text-white bg-primary stat-card">
+              <div class="card-body">
+                <h5 class="card-title">Total Users</h5>
+                <p class="card-text display-5">1,254</p>
+                <p class="mb-0"><small>+12% from last week</small></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 mb-3">
+            <div class="card text-white bg-success stat-card">
+              <div class="card-body">
+                <h5 class="card-title">Active Users</h5>
+                <p class="card-text display-5">842</p>
+                <p class="mb-0"><small>+8% from last week</small></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 mb-3">
+            <div class="card text-white bg-warning stat-card">
+              <div class="card-body">
+                <h5 class="card-title">Pending Orders</h5>
+                <p class="card-text display-5">56</p>
+                <p class="mb-0"><small>+3 new today</small></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 mb-3">
+            <div class="card text-white bg-danger stat-card">
+              <div class="card-body">
+                <h5 class="card-title">Revenue</h5>
+                <p class="card-text display-5">$12,345</p>
+                <p class="mb-0"><small>+24% from last week</small></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent Activity -->
+        <div class="card mb-4">
+          <div class="card-header">
+            <h5 class="mb-0">Recent Activity</h5>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>User</th>
+                    <th>Action</th>
+                    <th>Time</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>#1234</td>
+                    <td>john@example.com</td>
+                    <td>Login</td>
+                    <td>5 minutes ago</td>
+                    <td><span class="badge bg-success">Success</span></td>
+                  </tr>
+                  <tr>
+                    <td>#1233</td>
+                    <td>sarah@example.com</td>
+                    <td>Order #4567</td>
+                    <td>23 minutes ago</td>
+                    <td><span class="badge bg-warning">Pending</span></td>
+                  </tr>
+                  <tr>
+                    <td>#1232</td>
+                    <td>mike@example.com</td>
+                    <td>Password Change</td>
+                    <td>1 hour ago</td>
+                    <td><span class="badge bg-success">Success</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>

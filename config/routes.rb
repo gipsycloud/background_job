@@ -1,8 +1,12 @@
 require "sidekiq/web"
 Rails.application.routes.draw do
+  namespace :admin do
+    get "dashboard/index"
+  end
   devise_for :users
   authenticate :user, lambda { |u| u.admin? } do
     mount Sidekiq::Web => "/sidekiq"
+    root to: "admin/dashboard#index", as: :admin_root
   end
   get "pages/report"
   post "report", to: "pages#report"
@@ -16,6 +20,14 @@ Rails.application.routes.draw do
   get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
   get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
 
+  namespace :admin do
+    get "dashboard", to: "dashoard#index"
+  end
+
   # Defines the root path route ("/")
-  root "pages#report"
+  root "dashboard#index"
+
+  # devise_for :users, controllers: {
+  #       sessions: 'users/sessions'
+  #     }
 end

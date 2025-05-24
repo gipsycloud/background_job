@@ -61,3 +61,8 @@ gem "sidekiq", "~> 8.0"
 
 gem "devise", "~> 4.9", ">= 4.9.4"
 gem "foreman", group: :development
+gem "bootstrap", "~> 5.3", ">= 5.3.5"
+gem 'jquery-rails'
+gem "dartsass-rails", "~> 0.5.1"
+
+gem "sassc-rails", "~> 2.1"

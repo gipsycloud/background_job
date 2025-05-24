@@ -1,8 +1,9 @@
 class ReportJob
   include Sidekiq::Job
 
-  def perform(*args)
+  def perform(start_date, end_date, email)
     # Do something
-    puts "Hello world"
+    # user = User.find(user_id)
+    puts "SIDEKIQ WORKER GENERATING A REPORT FROM #{start_date} to #{end_date} with #{email}"
   end
 end
