@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   devise_for :users
   authenticate :user, lambda { |u| u.admin? } do
     mount Sidekiq::Web => "/sidekiq"
-    root to: "admin/dashboard#index", as: :admin_root
   end
   get "pages/report"
   post "report", to: "pages#report"
@@ -21,7 +20,10 @@ Rails.application.routes.draw do
   get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
 
   namespace :admin do
-    get "dashboard", to: "dashoard#index"
+    get "dashboard", to: "dashboard#index"
+    get "user_profile", to: "dashboard#user_profile"
+    get "products", to: "dashboard#products"
+    get "reports", to: "dashboard#reports"
   end
 
   # Defines the root path route ("/")
