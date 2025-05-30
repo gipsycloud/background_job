@@ -1,8 +1,8 @@
 require "sidekiq/web"
 Rails.application.routes.draw do
-  namespace :admin do
-    get "dashboard/index"
-  end
+  # namespace :admin do
+  #   get "dashboard/index"
+  # end
   devise_for :users
   authenticate :user, lambda { |u| u.admin? } do
     mount Sidekiq::Web => "/sidekiq"
@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   end
 
   # Defines the root path route ("/")
-  root "dashboard#index"
+  root "admin/dashboard#index"
 
   # devise_for :users, controllers: {
   #       sessions: 'users/sessions'
