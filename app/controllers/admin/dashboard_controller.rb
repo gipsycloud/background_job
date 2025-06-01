@@ -9,8 +9,8 @@ class Admin::DashboardController < ApplicationController
     @user = current_user
   end
 
-  def products
-  end
+  # def products
+  # end
 
   def reports
   end

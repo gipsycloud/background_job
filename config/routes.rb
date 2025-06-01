@@ -3,7 +3,11 @@ Rails.application.routes.draw do
   # namespace :admin do
   #   get "dashboard/index"
   # end
-  devise_for :users
+  devise_for :users, path: "", path_name: {
+    sign_in: "login",
+    sign_out: "logout",
+    registration: "signup"
+  }
   authenticate :user, lambda { |u| u.admin? } do
     mount Sidekiq::Web => "/sidekiq"
   end
@@ -25,6 +29,8 @@ Rails.application.routes.draw do
     get "products", to: "dashboard#products"
     get "reports", to: "dashboard#reports"
   end
+
+  resources :products
 
   # Defines the root path route ("/")
   root "admin/dashboard#index"

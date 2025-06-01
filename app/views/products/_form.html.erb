@@ -1,0 +1,35 @@
+<%= form_with model: product do |form| %>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :description %>
+    <%= form.text_field :description %>
+  </div>
+
+  <div>
+    <%= form.label :product_type %>
+    <%= form.text_field :product_type %>
+  </div>
+
+  <div>
+    <%= form.label :location %>
+    <%= form.text_field :location %>
+  </div>
+
+  <div>
+    <%= form.label :status %>
+    <%= form.text_field :status %>
+  </div>
+
+  <div>
+    <%= form.label :tags %>
+    <%= form.text_field :tags %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

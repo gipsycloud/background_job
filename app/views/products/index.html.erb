@@ -1,0 +1,9 @@
+<% @products.each do |product| %>
+  <%= product.name %>
+  <%= product.description %>
+  <%= product.location %>
+  <%= product.status %>
+  <%= product.tags %>
+<% end %>
+
+<%= link_to "New product", new_product_path %>

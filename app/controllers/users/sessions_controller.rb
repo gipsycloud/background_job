@@ -22,6 +22,11 @@ class Users::SessionsController < Devise::SessionsController
     dashboard_index_path
   end
 
+  def logout
+    reset_session
+    redirect_to(admin_dashboard_path)
+  end
+
 
   # protected
 
